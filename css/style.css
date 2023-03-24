@@ -1,0 +1,543 @@
+html,
+body {
+    height: 100%;
+    font-family: 'Quantico', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.connect-container {
+    user-select: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: #130000;
+    overflow: hidden;
+}
+
+.connect-four-game {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: space-around;
+}
+
+.connect {
+    height: 668px;
+    width: 768px;
+    margin-top: 66px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    align-content: center;
+}
+
+.board {
+    position: absolute;
+    width: 951px;
+    margin-top: 53px;
+    margin-right: 2px;
+    z-index: 1;
+}
+
+.chip {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+    width: 90px;
+    height: 90px;
+    color: transparent;
+    border-radius: 50%;
+    margin: 9.7px 9.8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.keypad-container {
+    width: 254px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.player-turn p {
+    color: #C29100;
+    border-bottom: 5px outset #ae8302;
+    padding: 15px 0;
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.player-turn {
+    border-radius: 10%;
+    width: 100%;
+    background-color: #0000005c;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-width: 3px;
+    border-style: outset;
+    border-color: #C29100;
+    box-shadow: -4px 5px 8px 0px #000000bf;
+}
+
+.player-turn img {
+    width: 100px;
+    height: 100px;
+}
+
+.button-container {
+    width: 210px;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    width: 100%;
+    color: #C29100;
+    padding: 9px;
+    margin-block: 17px;
+    border-radius: 14px;
+    background-color: #00000042;
+    border-width: 3px;
+    border-color: #C29100;
+    box-shadow: -4px 5px 8px 0px #000000bf;
+}
+
+.score-container {
+    width: 400px;
+    height: 288px;
+    margin-bottom: 106px;
+    border-radius: 35px;
+    background-color: #0000005c;
+    display: flex;
+    border-width: 3px;
+    border-style: outset;
+    border-color: #C29100;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: -4px 5px 8px 0px #000000bf;
+    text-shadow: -2px 2px 6px black;
+}
+
+.play-again {
+    position: absolute;
+    width: 400px;
+    margin-top: 515px;
+}
+
+.player-points {
+    width: 150px;
+    height: 150px;
+    margin-top: 40px;
+    border-radius: 22px;
+    border-width: 3px;
+    border-style: outset;
+    border-color: #C29100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -4px 5px 8px 0px #000000bf;
+}
+
+.player-points p {
+    color: #C29100;
+    text-align: center;
+}
+
+.player-points p:nth-child(1) {
+    font-size: 2.4em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: -238px;
+    position: absolute;
+}
+
+.player-points p:nth-child(2) {
+    font-size: 6em;
+}
+
+.player-points.blue {
+    background-color: #1683de9e;
+}
+
+.player-points.red {
+    background-color: #ea171b54;
+}
+
+.feedback {
+    position: absolute;
+    margin-top: 370px;
+    color: #C29100;
+    font-size: 1.5em;
+}
+
+.farewell-container {
+    display: flex;
+    color: #C29100;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 2em;
+}
+
+.farewell-container p {
+    border: 1px solid #C29100;
+    padding: 100px;
+    background-color: #0000005c;
+}
+
+.red-chip {
+    z-index: 0;
+    background-image: url(../images/redchip.WebP);
+}
+
+.blue-chip {
+    z-index: 0;
+    background-image: url(../images/bluechip.WebP);
+}
+
+.win-chips {
+    box-shadow: inset 0px 0px 5px 6px #0000006c;
+    animation: flash 2s infinite;
+}
+
+.display-none {
+    display: none;
+}
+
+@keyframes flash {
+
+    0%,
+    50%,
+    100% {
+        box-shadow: inset 0px 0px 5px 6px #0000006c;
+    }
+
+    25%,
+    75% {
+        box-shadow: inset 0px 0px 5px 6px #000000;
+    }
+}
+
+
+@media screen and (min-width: 3839px) {
+
+    .connect-four-game {
+        font-size: 1.7rem;
+    }
+
+    .board {
+        width: 1700px;
+        margin-top: 94px;
+        margin-right: 5px;
+    }
+
+    .score-container {
+        width: 698px;
+        height: 520px;
+        border-width: 7px;
+    }
+
+    .feedback {
+        margin-top: 656px;
+        font-size: 1.7em;
+    }
+
+    .connect {
+        height: 1300px;
+    }
+
+    .chip {
+        width: 164px;
+        height: 164px;
+        margin: 16px 16.3px;
+    }
+
+    .play-again {
+        width: 700px;
+        font-size: 1.6em;
+        margin-top: 913px;
+    }
+
+    .player-points {
+        width: 257px;
+        height: 287px;
+        margin-top: 86px;
+        border-width: 7px;
+    }
+
+    .player-points p:nth-child(1) {
+        font-size: 2.4em;
+        margin-top: -436px;
+    }
+
+    .player-points p:nth-child(2) {
+        font-size: 7em;
+    }
+
+    .player-turn {
+        height: 490px;
+        border-width: 7px;
+    }
+
+    .keypad-container {
+        width: 480px;
+    }
+
+    .player-turn img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .button-container {
+        width: 480px;
+    }
+
+    button {
+        font-size: 1.4em;
+        padding: 16px;
+        border-width: 5px;
+        border-radius: 28px;
+        height: 115px;
+    }
+
+    .farewell-container p {
+        font-size: 2.8em;
+        padding: 254px;
+    }
+}
+
+@media screen and (min-width: 2559px) and (max-width: 3839px) {
+
+    .connect-four-game {
+        font-size: 1.2rem;
+    }
+
+    .board {
+        width: 1331px;
+        margin-top: 75px;
+        margin-right: 3px;
+    }
+
+    .score-container {
+        width: 478px;
+        border-width: 5px;
+        height: 394px;
+    }
+
+    .feedback {
+        margin-top: 506px;
+        font-size: 1.7em;
+    }
+
+    .connect {
+        height: 1017px;
+    }
+
+    .chip {
+        width: 127px;
+        height: 127px;
+        margin: 13px 13.4px;
+    }
+
+    .play-again {
+        width: 478px;
+        font-size: 1.6em;
+        margin-top: 714px;
+    }
+
+    .player-points {
+        width: 193px;
+        height: 221px;
+        margin-top: 78px;
+        border-width: 5px;
+    }
+
+    .player-points p:nth-child(1) {
+        font-size: 2.2em;
+        margin-top: -345px;
+    }
+
+    .player-points p:nth-child(2) {
+        font-size: 6em;
+    }
+
+    .keypad-container {
+        width: 353px;
+    }
+
+    .player-turn {
+        height: 363px;
+        border-width: 5px;
+    }
+
+    .player-turn img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .button-container {
+        width: 353px;
+    }
+
+    button {
+        font-size: 1.4em;
+        padding: 12px;
+        margin-block: 7px;
+        border-width: 4px;
+    }
+
+    .farewell-container p {
+        font-size: 1.8em;
+    }
+
+}
+
+@media screen and (min-width: 1919px) and (max-width: 2559px) {
+
+    .player-turn {
+        width: 254px;
+        height: 250px;
+    }
+
+    .player-turn img {
+        width: 118px;
+        height: 118px;
+    }
+
+    .player-turn p {
+        border-bottom: 3px outset #ae8302;
+        padding: 10px 0;
+        font-size: 1.4em;
+    }
+
+    .button-container {
+        width: 254px;
+    }
+
+    button {
+        padding: 13px;
+        margin-block: 11px;
+    }
+}
+
+@media screen and (max-width: 1919px) {
+
+    .connect-four-game {
+        font-size: 0.6rem;
+    }
+
+    .board {
+        width: 700px;
+        margin-top: 39.8px;
+        margin-right: 1.5px;
+    }
+
+    .score-container {
+        width: 222px;
+        height: 181px;
+        border-radius: 20px;
+    }
+
+    .feedback {
+        margin-top: 242px;
+        font-size: 1.7em;
+    }
+
+    .connect {
+        height: 529px;
+        margin-top: -11px;
+    }
+
+    .chip {
+        width: 66px;
+        height: 66px;
+        margin: 7.3px 7.5px;
+    }
+
+    .play-again {
+        width: 222px;
+        font-size: 1.6em;
+        margin-top: 358px;
+    }
+
+    .player-points {
+        width: 86px;
+        height: 93px;
+        margin-top: 32px;
+        border-radius: 11px;
+    }
+
+    .player-points p:nth-child(1) {
+        font-size: 2.2em;
+        margin-top: -154px;
+    }
+
+    .keypad-container {
+        width: 193px;
+    }
+
+    .player-turn {
+        height: 191px;
+        border-width: 3px;
+    }
+
+    .player-turn p {
+        border-bottom: 3px outset #ae8302;
+        padding: 10px 0;
+        font-size: 1.4em;
+    }
+
+    .player-turn img {
+        width: 86px;
+        height: 86px;
+    }
+
+    .button-container {
+        width: 193px;
+    }
+
+    button {
+        font-size: 1.4em;
+        padding: 8px;
+        margin-block: 7px;
+    }
+
+    .farewell-container p {
+        border: 1px solid #C29100;
+        padding: 190px;
+        background-color: #0000005c;
+        font-size: 2.8em;
+    }
+
+    .farewell-container p {
+        font-size: 0.9em;
+        padding: 93px;
+    }
+}
