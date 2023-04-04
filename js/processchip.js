@@ -15,7 +15,6 @@ const startProcessChip = (
 ) => {
   insertChipColor(chip, playerTurn);
   const whatIsResult = checkWhatIsResult(+chip.innerHTML, chips, playerTurn);
-  console.log(+chip.innerHTML);
   if (whatIsResult)
     givePointsPlayer(whatIsResult, feedback, redPlayer, bluePlayer) +
       showAndHideElementContent(playAgainButtom);
